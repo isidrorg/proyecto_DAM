@@ -1,0 +1,55 @@
+RadioButton {
+    margin: 0 20px 0 0;
+}
+
+#footer {
+    -fx-border-style: solid;
+    -fx-border-color: #CCCCCC;
+    -fx-border-width: 1px;
+}
+
+.tab-pane {
+    -fx-tab-min-width: 200px;
+    -fx-tab-min-height: 30px;
+    -fx-font-size: 13px;
+}
+
+.container-left,
+.container-right {
+    -fx-padding: 30px;
+    -fx-min-width: 640px;
+    -fx-max-width: 640px;
+    -fx-min-height: 753px;
+    -fx-max-height: 753px;
+}
+
+.container-left Button {
+    -fx-margin: 20px;
+}
+
+.title {
+    -fx-font-size: 28px;
+    -fx-margin: 6px 0 6px 0;
+    -fx-font-weight: bold;
+}
+
+.form-label-left {
+    -fx-min-width: 130px;
+    -fx-padding: 3px 0 0 0;
+}
+
+.form-textfield-left {
+    -fx-min-width: 450px;
+}
+
+.spacing-default {
+    -fx-spacing: 20px;
+}
+
+.button-big {
+    -fx-padding: 10px 20px;
+}
+
+.text-align-right {
+    -fx-alignment: center-right;
+}

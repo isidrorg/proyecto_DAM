@@ -1,0 +1,24 @@
+Adjunto el proyecto con el código fuente de la aplicación, la aplicación compilada en JAR, 
+la base de datos adjunta y un documento PDF con el análisis de la aplicación.
+
+Para compilar el código fuente se requiere usar Oracle Java JDK 8 y Maven. Yo utilicé el 
+IDE IntelliJ Idea que ya trae soporte para proyectos en Maven, en caso de no usar Maven 
+tendrá que descargar las dependencias y añadirlas al proyecto (indicado en la documentación).
+
+Para ejecutar la aplicación compilada en JAR tendrá que usar el Oracle Java JRE 8, la he 
+probado con la última versión y funciona perfectamente.
+
+Los usuarios y contraseñas con acceso a la aplicación son:
+
+antonio / 1234
+maria / 0987
+jose / 5678
+
+La base de datos está en Apache Derby embebido y se encuentra alojada en el directorio 
+"gestor_database", tiene que estar situada en el mismo directorio que el compilado JAR.
+
+En caso de que la base de datos no esté presente junto al JAR, se generará automáticamente 
+al intentar hacer login en la aplicación. En tal caso, el directorio 
+"codigo_fuente/src/main/sql" contine el fichero "populate_db.sql" para inicializar la base de datos.
+
+Puede administrar la base de datos con el cliente dBeaver.

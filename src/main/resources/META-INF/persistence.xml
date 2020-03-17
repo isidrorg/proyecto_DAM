@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.0" xmlns="http://java.sun.com/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+    <persistence-unit name="gestor_database" transaction-type="RESOURCE_LOCAL">
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+
+        <class>entities.Cliente</class>
+        <class>entities.Factura</class>
+        <class>entities.FacturaProductos</class>
+        <class>entities.Producto</class>
+        <class>entities.Proveedor</class>
+        <class>entities.Recibo</class>
+        <class>entities.ReciboProductos</class>
+        <class>entities.Usuario</class>
+        <exclude-unlisted-classes>true</exclude-unlisted-classes>
+
+        <properties>
+            <property name="hibernate.connection.driver_class" value="org.apache.derby.jdbc.EmbeddedDriver" />
+            <property name="hibernate.connection.url" value="jdbc:derby:gestor_database;create=true" />
+            <property name="hibernate.connection.username" value="gestor_database" />
+            <property name="hibernate.connection.password" value="" />
+            <property name="hibernate.dialect" value="org.hibernate.dialect.DerbyTenSevenDialect" />
+            <property name="hibernate.hbm2ddl.auto" value="update" />
+            <property name="hibernate.connection.charSet" value="UTF-8"/>
+            <property name="hibernate.show_sql" value = "true" />
+            <property name="hibernate.connection.autocommit" value="false" />
+
+            <!-- Descomentar para reiniciar la base de datos
+            <property name="javax.persistence.schema-generation.database.action" value="drop-and-create" />
+            <property name="javax.persistence.sql-load-script-source" value="src/main/sql/populate_db.sql" />
+            -->
+        </properties>
+    </persistence-unit>
+</persistence>

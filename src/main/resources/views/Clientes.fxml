@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.cell.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<fx:root fx:id="clientes" prefHeight="753.0" prefWidth="1280.0" stylesheets="@../stylesheets/main.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="stories.clientes.ClientesController">
+    <children>
+        <VBox spacing="38.0" styleClass="container-left">
+            <children>
+                <HBox layoutX="40.0" layoutY="40.0" styleClass="form-label-left">
+                    <children>
+                        <Label styleClass="title" text="Clientes">
+                     <padding>
+                        <Insets bottom="6.0" />
+                     </padding></Label>
+                    </children>
+                </HBox>
+                <HBox>
+                    <children>
+                        <Label styleClass="form-label-left" text="NIF/CIF/NIE*:" />
+                        <TextField fx:id="numeroIdentificacion" styleClass="form-textfield-left" />
+                    </children>
+                </HBox>
+            <HBox layoutX="40.0" layoutY="105.0">
+               <children>
+                  <Label styleClass="form-label-left" text="Nombre*:" />
+                  <TextField fx:id="nombre" styleClass="form-textfield-left" />
+               </children>
+            </HBox>
+            <HBox layoutX="40.0" layoutY="161.0">
+               <children>
+                  <Label styleClass="form-label-left" text="Apellidos:" />
+                  <TextField fx:id="apellidos" styleClass="form-textfield-left" />
+               </children>
+            </HBox>
+            <HBox layoutX="40.0" layoutY="217.0">
+               <children>
+                  <Label styleClass="form-label-left" text="Dirección:" />
+                  <TextField fx:id="calle" prefWidth="400.0" promptText="Calle">
+                     <HBox.margin>
+                        <Insets right="20.0" />
+                     </HBox.margin></TextField>
+                  <TextField fx:id="numeroCalle" layoutX="140.0" layoutY="10.0" promptText="Nº" />
+               </children>
+            </HBox>
+            <HBox layoutX="40.0" layoutY="273.0">
+               <children>
+                  <Label styleClass="form-label-left" text=" " />
+                  <TextField fx:id="piso" promptText="Piso">
+                     <HBox.margin>
+                        <Insets right="20.0" />
+                     </HBox.margin></TextField>
+                  <TextField fx:id="puerta" layoutX="140.0" layoutY="10.0" promptText="Puerta">
+                     <HBox.margin>
+                        <Insets right="20.0" />
+                     </HBox.margin></TextField>
+                  <TextField fx:id="codigoPostal" layoutX="311.0" layoutY="10.0" promptText="Código Postal" />
+               </children>
+            </HBox>
+            <HBox layoutX="40.0" layoutY="329.0">
+               <children>
+                  <Label styleClass="form-label-left" text=" " />
+                  <TextField fx:id="municipio" prefWidth="215.0" promptText="Municipio">
+                     <HBox.margin>
+                        <Insets right="20.0" />
+                     </HBox.margin></TextField>
+                  <TextField fx:id="provincia" layoutX="140.0" layoutY="10.0" prefWidth="215.0" promptText="Provincia" />
+               </children>
+            </HBox>
+            <HBox layoutX="40.0" layoutY="273.0">
+               <children>
+                  <Label styleClass="form-label-left" text="Contacto:" />
+                  <TextField fx:id="telefonoMovil" prefWidth="215.0" promptText="Móvil">
+                     <HBox.margin>
+                        <Insets right="20.0" />
+                     </HBox.margin></TextField>
+                  <TextField fx:id="telefonoFijo" layoutX="140.0" layoutY="10.0" prefWidth="215.0" promptText="Teléfono Fijo" />
+               </children>
+            </HBox>
+            <HBox layoutX="40.0" layoutY="441.0">
+               <children>
+                  <Label styleClass="form-label-left" />
+                  <TextField fx:id="email" promptText="Correo electrónico" styleClass="form-textfield-left" />
+               </children>
+            </HBox>
+            <HBox layoutX="40.0" layoutY="441.0">
+               <children>
+                  <Label styleClass="form-label-left" text="Cuenta Bancaria:" />
+                  <TextField fx:id="cuentaBancaria" styleClass="form-textfield-left" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_RIGHT" layoutX="40.0" layoutY="553.0" styleClass="spacing-default">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#limpiarCliente" styleClass="button-big" text="Limpiar" />
+                  <Button fx:id="botonModificar" disable="true" layoutX="496.0" layoutY="10.0" mnemonicParsing="false" onAction="#modificarCliente" styleClass="button-big" text="Modificar" />
+                  <Button fx:id="botonDarAlta" layoutX="496.0" layoutY="10.0" mnemonicParsing="false" onAction="#altaCliente" styleClass="button-big" text="Dar Alta" />
+               </children>
+            </HBox>
+            </children>
+        </VBox>
+        <VBox layoutX="640.0" spacing="30.0" styleClass="container-right">
+         <children>
+            <HBox styleClass="spacing-default">
+               <children>
+                  <TextField fx:id="buscarNombre" prefWidth="180.0" promptText="Nombre" />
+                  <TextField fx:id="buscarNifCifNie" promptText="NIF/CIF/NIE" />
+                  <ComboBox fx:id="buscarCodigoPostal" prefWidth="150.0" promptText="Código Postal" />
+                  <Button mnemonicParsing="false" onAction="#buscarCliente" text="B" />
+               </children>
+            </HBox>
+            <TableView fx:id="tablaClientesBuscados" prefHeight="350.0" prefWidth="580.0">
+               <columns>
+                  <TableColumn prefWidth="260.0" text="Apellidos">
+                      <cellValueFactory>
+                          <PropertyValueFactory property="apellidos" />
+                      </cellValueFactory>
+                  </TableColumn>
+                  <TableColumn prefWidth="200.0" text="Nombre">
+                      <cellValueFactory>
+                          <PropertyValueFactory property="nombre" />
+                      </cellValueFactory>
+                  </TableColumn>
+                   <TableColumn prefWidth="115.0" text="CP">
+                       <cellValueFactory>
+                           <PropertyValueFactory property="codigoPostal" />
+                       </cellValueFactory>
+                   </TableColumn>
+               </columns>
+            </TableView>
+            <TextArea fx:id="infoCliente" editable="false" prefHeight="200.0" prefWidth="200.0">
+               <font>
+                  <Font name="Ubuntu Mono" size="14.0" />
+               </font></TextArea>
+            <HBox alignment="CENTER_RIGHT" styleClass="spacing-default">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#limpiarBuscarCliente" styleClass="button-big" text="Limpiar">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="botonEditar" disable="true" layoutX="501.0" layoutY="10.0" mnemonicParsing="false" onAction="#editarCliente" styleClass="button-big" text="Editar" />
+                  <Button fx:id="botonBorrar" disable="true" layoutX="501.0" layoutY="10.0" mnemonicParsing="false" onAction="#borrarCliente" styleClass="button-big" text="Borrar" />
+               </children>
+            </HBox>
+         </children>
+        </VBox>
+    </children>
+
+</fx:root>

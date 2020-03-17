@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.cell.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<fx:root fx:id="facturas" prefHeight="753.0" prefWidth="1280.0" stylesheets="@../stylesheets/main.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="stories.recibos.RecibosController">
+    <children>
+        <VBox spacing="25.0" styleClass="container-left">
+            <children>
+            <HBox layoutX="40.0" layoutY="40.0">
+               <children>
+                  <Label styleClass="title" text="Recibos" />
+               </children>
+            </HBox>
+                <HBox>
+                    <children>
+                        <Label styleClass="form-label-left" text="Identificación nº*:" />
+                        <TextField fx:id="numeroDeRecibo" styleClass="form-textfield-left" />
+                    </children>
+                </HBox>
+                <HBox layoutX="40.0" layoutY="40.0">
+                    <children>
+                        <Label styleClass="form-label-left" text="Proveedor*:" />
+                        <ComboBox fx:id="proveedor" prefWidth="150.0" styleClass="form-textfield-left" />
+                    </children>
+                </HBox>
+                <HBox layoutX="40.0" layoutY="95.0">
+                    <children>
+                        <Label styleClass="form-label-left" text="Productos*:" />
+                        <ComboBox fx:id="producto" prefWidth="450.0">
+                            <HBox.margin>
+                                <Insets />
+                            </HBox.margin></ComboBox>
+                    </children>
+                </HBox>
+            <HBox>
+               <children>
+                  <Label styleClass="form-label-left" />
+                        <TextField fx:id="cantidadProducto" prefWidth="190.0" promptText="Cantidad">
+                            <HBox.margin>
+                                <Insets right="20.0" />
+                            </HBox.margin>
+                        </TextField>
+                  <TextField fx:id="precioCompra" prefWidth="191.0" promptText="Precio Compra">
+                     <HBox.margin>
+                        <Insets right="20.0" />
+                     </HBox.margin>
+                  </TextField>
+                  <Button mnemonicParsing="false" onAction="#setProductoEnLista" text="+" />
+               </children>
+            </HBox>
+                <TableView fx:id="tablaInsertarProductos" prefHeight="250.0" prefWidth="200.0">
+                    <columns>
+                        <TableColumn prefWidth="50.0" resizable="false" sortable="false" styleClass="text-align-right" text="ID">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="id" />
+                            </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn prefWidth="270.0" resizable="false" sortable="false" text="Nombre">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="nombre" />
+                            </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn prefWidth="120.0" resizable="false" sortable="false" text="Marca">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="marca" />
+                            </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn prefWidth="50.0" resizable="false" sortable="false" styleClass="text-align-right" text="Uds.">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="unidades" />
+                            </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn prefWidth="90.0" resizable="false" sortable="false" styleClass="text-align-right" text="Precio">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="precio" />
+                            </cellValueFactory>
+                        </TableColumn>
+                    </columns>
+                </TableView>
+                <HBox layoutX="40.0" layoutY="150.0">
+                    <children>
+                        <Label styleClass="form-label-left" text="Base imponible:" />
+                        <TextField fx:id="baseImponible" alignment="CENTER_RIGHT" editable="false" styleClass="form-textfield-left" />
+                    </children>
+                </HBox>
+                <HBox layoutX="40.0" layoutY="205.0">
+                    <children>
+                        <Label styleClass="form-label-left" text="Impuestos:" />
+                        <TextField fx:id="impuestosBase" alignment="CENTER_RIGHT" editable="false" prefWidth="70.0" promptText="7.00">
+                            <opaqueInsets>
+                                <Insets />
+                            </opaqueInsets>
+                            <HBox.margin>
+                                <Insets right="20.0" />
+                            </HBox.margin>
+                        </TextField>
+                        <TextField fx:id="impuestosTotal" alignment="CENTER_RIGHT" editable="false" layoutX="140.0" layoutY="10.0" prefWidth="360.0" />
+                    </children>
+                    <VBox.margin>
+                        <Insets />
+                    </VBox.margin>
+                </HBox>
+                <HBox layoutX="40.0" layoutY="260.0">
+                    <children>
+                        <Label styleClass="form-label-left" text="Total:" />
+                        <TextField fx:id="total" alignment="CENTER_RIGHT" editable="false" styleClass="form-textfield-left" />
+                    </children>
+                </HBox>
+                <HBox alignment="CENTER_RIGHT" layoutX="40.0" layoutY="545.0" styleClass="spacing-default">
+                    <children>
+                        <Button mnemonicParsing="false" onAction="#limpiarRecibo" styleClass="button-big" text="Limpiar">
+                            <HBox.margin>
+                                <Insets />
+                            </HBox.margin>
+                        </Button>
+                        <Button fx:id="botonEmitir" disable="true" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#emitirRecibo" styleClass="button-big" text="Emitir" />
+                    </children>
+                </HBox>
+            </children>
+        </VBox>
+        <VBox layoutX="640.0" spacing="30.0" styleClass="container-right">
+            <children>
+                <HBox styleClass="spacing-default">
+                    <children>
+                        <TextField fx:id="buscarNumeroRecibo" prefWidth="200.0" promptText="Número Recibo" />
+                        <ComboBox fx:id="buscarProveedor" prefWidth="313.0" promptText="Proveedor" />
+                        <Button mnemonicParsing="false" onAction="#buscarRecibos" text="B" />
+                    </children>
+                </HBox>
+                <TableView fx:id="tablaBuscarRecibos" prefHeight="350.0" prefWidth="580.0">
+                    <columns>
+                        <TableColumn prefWidth="100.0" text="Nº Recibo">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="numeroRecibo" />
+                            </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn prefWidth="180.0" text="Fecha">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="fecha" />
+                            </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn prefWidth="195.0" text="Proveedor">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="idProveedor" />
+                            </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn prefWidth="100.0" styleClass="text-align-right" text="Importe">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="importe" />
+                            </cellValueFactory>
+                        </TableColumn>
+                    </columns>
+                </TableView>
+            <TextArea fx:id="infoRecibo" editable="false" prefHeight="200.0" prefWidth="200.0">
+               <font>
+                  <Font name="Ubuntu Mono" size="14.0" />
+               </font></TextArea>
+            <HBox alignment="CENTER_RIGHT" styleClass="spacing-default">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#limpiarBusquedaRecibos" styleClass="button-big" text="Limpiar">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </Button>
+               </children>
+            </HBox>
+            </children>
+        </VBox>
+    </children>
+</fx:root>

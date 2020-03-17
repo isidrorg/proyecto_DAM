@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<fx:root fx:id="usuario" prefHeight="753.0" prefWidth="1280.0" stylesheets="@../stylesheets/main.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="stories.usuario.UsuarioController">
+    <children>
+        <VBox spacing="38.0" styleClass="container-left">
+            <children>
+                <HBox layoutX="40.0" layoutY="40.0" styleClass="form-label-left">
+                    <children>
+                        <Label styleClass="title" text="Usuario">
+                     <padding>
+                        <Insets bottom="6.0" />
+                     </padding></Label>
+                    </children>
+                </HBox>
+                <HBox>
+                    <children>
+                        <Label styleClass="form-label-left" text="NIF/CIF/NIE*:" />
+                        <TextField fx:id="numeroIdentificacion" styleClass="form-textfield-left" />
+                    </children>
+                </HBox>
+            <HBox layoutX="40.0" layoutY="105.0">
+               <children>
+                  <Label styleClass="form-label-left" text="Nombre*:" />
+                  <TextField fx:id="nombre" styleClass="form-textfield-left" />
+               </children>
+            </HBox>
+            <HBox layoutX="40.0" layoutY="161.0">
+               <children>
+                  <Label styleClass="form-label-left" text="Apellidos*:" />
+                  <TextField fx:id="apellidos" styleClass="form-textfield-left" />
+               </children>
+            </HBox>
+            <HBox layoutX="40.0" layoutY="217.0">
+               <children>
+                  <Label styleClass="form-label-left" text="Dirección*:" />
+                  <TextField fx:id="calle" prefWidth="400.0" promptText="Calle">
+                     <HBox.margin>
+                        <Insets right="20.0" />
+                     </HBox.margin></TextField>
+                  <TextField fx:id="numeroCalle" layoutX="140.0" layoutY="10.0" promptText="Nº" />
+               </children>
+            </HBox>
+            <HBox layoutX="40.0" layoutY="273.0">
+               <children>
+                  <Label styleClass="form-label-left" text=" " />
+                  <TextField fx:id="piso" promptText="Piso">
+                     <HBox.margin>
+                        <Insets right="20.0" />
+                     </HBox.margin></TextField>
+                  <TextField fx:id="puerta" layoutX="140.0" layoutY="10.0" promptText="Puerta">
+                     <HBox.margin>
+                        <Insets right="20.0" />
+                     </HBox.margin></TextField>
+                  <TextField fx:id="codigoPostal" layoutX="311.0" layoutY="10.0" promptText="Código Postal" />
+               </children>
+            </HBox>
+            <HBox layoutX="40.0" layoutY="329.0">
+               <children>
+                  <Label styleClass="form-label-left" text=" " />
+                  <TextField fx:id="municipio" prefWidth="215.0" promptText="Municipio">
+                     <HBox.margin>
+                        <Insets right="20.0" />
+                     </HBox.margin></TextField>
+                  <TextField fx:id="provincia" layoutX="140.0" layoutY="10.0" prefWidth="215.0" promptText="Provincia" />
+               </children>
+            </HBox>
+            <HBox layoutX="40.0" layoutY="273.0">
+               <children>
+                  <Label styleClass="form-label-left" text="Contacto*:" />
+                  <TextField fx:id="telefonoMovil" prefWidth="215.0" promptText="Móvil">
+                     <HBox.margin>
+                        <Insets right="20.0" />
+                     </HBox.margin></TextField>
+                  <TextField fx:id="telefonoFijo" layoutX="140.0" layoutY="10.0" prefWidth="215.0" promptText="Teléfono Fijo" />
+               </children>
+            </HBox>
+            <HBox layoutX="40.0" layoutY="441.0">
+               <children>
+                  <Label styleClass="form-label-left" />
+                  <TextField fx:id="email" promptText="Correo electrónico" styleClass="form-textfield-left" />
+               </children>
+            </HBox>
+            <HBox layoutX="40.0" layoutY="441.0">
+               <children>
+                  <Label styleClass="form-label-left" text="Cuenta Bancaria*:" />
+                  <TextField fx:id="cuentaBancaria" styleClass="form-textfield-left" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_RIGHT" layoutX="40.0" layoutY="553.0" styleClass="spacing-default">
+               <children>
+                  <Button fx:id="botonModificar" layoutX="496.0" layoutY="10.0" mnemonicParsing="false" onAction="#modificarUsuario" styleClass="button-big" text="Modificar" />
+               </children>
+            </HBox>
+            </children>
+        </VBox>
+        <VBox layoutX="640.0" spacing="50.0" styleClass="container-right">
+         <children>
+            <HBox>
+               <children>
+                  <Label prefWidth="190.0" styleClass="form-label-left" text="Contraseña antigua:" />
+                  <PasswordField fx:id="contrasenyaAntigua" prefWidth="390.0" />
+               </children>
+               <VBox.margin>
+                  <Insets top="210.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox layoutX="40.0" layoutY="40.0">
+               <children>
+                  <Label prefWidth="190.0" styleClass="form-label-left" text="Contraseña nueva:" />
+                  <PasswordField fx:id="contrasenyaNueva" prefWidth="390.0" />
+               </children>
+            </HBox>
+            <HBox layoutX="40.0" layoutY="40.0">
+               <children>
+                  <Label prefWidth="190.0" styleClass="form-label-left" text="Repetir contraseña nueva:" />
+                  <PasswordField fx:id="contrasenyaNuevaConfirmacion" prefWidth="390.0" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_RIGHT" styleClass="spacing-default">
+               <children>
+                  <Button layoutX="496.0" layoutY="10.0" mnemonicParsing="false" onAction="#modificarContrasenya" styleClass="button-big" text="Modificar" />
+               </children>
+            </HBox>
+         </children></VBox>
+    </children>
+
+</fx:root>

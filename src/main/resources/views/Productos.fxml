@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.cell.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<fx:root fx:id="productos" prefHeight="753.0" prefWidth="1280.0" stylesheets="@../stylesheets/main.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="stories.productos.ProductosController">
+    <children>
+        <VBox spacing="54.0" styleClass="container-left">
+            <children>
+                <HBox layoutX="40.0" layoutY="40.0">
+                    <children>
+                        <Label styleClass="title" text="Productos" />
+                    </children>
+                </HBox>
+                <HBox>
+                    <children>
+                        <Label styleClass="form-label-left" text="Código barras*:" />
+                        <TextField fx:id="codigoBarras" styleClass="form-textfield-left" />
+                    </children>
+                </HBox>
+            <HBox layoutX="40.0" layoutY="105.0">
+               <children>
+                  <Label styleClass="form-label-left" text="Marca*:" />
+                  <TextField fx:id="marca" styleClass="form-textfield-left" />
+               </children>
+            </HBox>
+            <HBox layoutX="40.0" layoutY="161.0">
+               <children>
+                  <Label styleClass="form-label-left" text="Nombre*:" />
+                  <TextField fx:id="nombre" styleClass="form-textfield-left" />
+               </children>
+            </HBox>
+            <HBox layoutX="40.0" layoutY="217.0">
+               <children>
+                  <Label styleClass="form-label-left" text="Categoría*:" />
+                  <TextField fx:id="categoria" styleClass="form-textfield-left" />
+               </children>
+            </HBox>
+            <HBox layoutX="40.0" layoutY="273.0">
+               <children>
+                  <Label styleClass="form-label-left" text="Descripción:" />
+                  <TextArea fx:id="descripcion" focusTraversable="false" prefColumnCount="0" prefRowCount="6" styleClass="form-textfield-left" wrapText="true" />
+               </children>
+            </HBox>
+            <HBox layoutX="40.0" layoutY="433.0">
+               <children>
+                  <Label styleClass="form-label-left" text="Precio de venta*:" />
+                  <TextField fx:id="precioVenta" styleClass="form-textfield-left" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_RIGHT" layoutX="40.0" layoutY="329.0">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#limpiarProducto" styleClass="button-big" text="Limpiar">
+                     <HBox.margin>
+                        <Insets right="20.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="botonModificar" disable="true" layoutX="381.0" layoutY="10.0" mnemonicParsing="false" onAction="#modificarProducto" styleClass="button-big" text="Modificar">
+                     <HBox.margin>
+                        <Insets right="20.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="botonRegistrar" layoutX="445.0" layoutY="10.0" mnemonicParsing="false" onAction="#registrarProducto" styleClass="button-big" text="Registrar" />
+               </children>
+            </HBox>
+            </children>
+        </VBox>
+        <VBox layoutX="640.0" spacing="30.0" styleClass="container-right">
+            <children>
+                <HBox styleClass="spacing-default">
+                    <children>
+                        <ComboBox fx:id="buscarCategoria" prefWidth="257.0" promptText="Categoría" />
+                        <ComboBox fx:id="buscarMarca" prefWidth="256.0" promptText="Marca" />
+                        <Button mnemonicParsing="false" onAction="#buscarProducto" text="B" />
+                    </children>
+                </HBox>
+                <TableView fx:id="tablaBuscarProducto" prefHeight="350.0" prefWidth="580.0">
+                    <columns>
+                        <TableColumn prefWidth="50.0" text="Id">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="id" />
+                            </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn prefWidth="220.0" text="Nombre">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="nombre" />
+                            </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn prefWidth="130.0" text="Marca">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="marca" />
+                            </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn prefWidth="120.0" text="Categoría">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="categoria" />
+                            </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn prefWidth="55.0" text="Uds">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="cantidad" />
+                            </cellValueFactory>
+                        </TableColumn>
+                    </columns>
+                </TableView>
+                <TextArea fx:id="infoProducto" editable="false" prefHeight="200.0" prefWidth="200.0" wrapText="true">
+               <font>
+                  <Font name="Ubuntu Mono" size="14.0" />
+               </font></TextArea>
+                <HBox alignment="CENTER_RIGHT" styleClass="spacing-default">
+                    <children>
+                        <Button mnemonicParsing="false" onAction="#limpiarBuscarProducto" styleClass="button-big" text="Limpiar">
+                            <HBox.margin>
+                                <Insets />
+                            </HBox.margin>
+                        </Button>
+                        <Button fx:id="botonEditar" disable="true" layoutX="66.0" layoutY="10.0" mnemonicParsing="false" onAction="#editarProducto" styleClass="button-big" text="Editar" />
+                  <Button fx:id="botonEliminar" disable="true" layoutX="511.0" layoutY="10.0" mnemonicParsing="false" onAction="#eliminarProducto" styleClass="button-big" text="Eliminar" />
+                    </children>
+                </HBox>
+            </children>
+        </VBox>
+    </children>
+</fx:root>

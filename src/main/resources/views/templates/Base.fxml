@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+
+<VBox fx:id="ventanaPrincipal" prefHeight="800.0" prefWidth="1280.0" stylesheets="@../../stylesheets/main.css" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="stories.base.BaseController">
+    <children>
+        <MenuBar fx:id="barraMenu">
+            <menus>
+                <Menu fx:id="usuarioBase" mnemonicParsing="false" text="Usuario">
+                    <items>
+                        <MenuItem mnemonicParsing="false" onAction="#cargarUsuario" text="Editar Perfil" />
+                        <SeparatorMenuItem mnemonicParsing="false" />
+                        <MenuItem mnemonicParsing="false" onAction="#cerrarSesion" text="Cerrar Sesión" />
+                        <MenuItem mnemonicParsing="false" onAction="#salir" text="Salir" />
+                    </items>
+                </Menu>
+                <Menu fx:id="compras" mnemonicParsing="false" text="Compras">
+                    <items>
+                        <MenuItem mnemonicParsing="false" onAction="#cargarFacturas" text="Facturas" />
+                        <MenuItem mnemonicParsing="false" onAction="#cargarClientes" text="Clientes" />
+                    </items>
+                </Menu>
+                <Menu fx:id="ventas" mnemonicParsing="false" text="Ventas">
+                    <items>
+                        <MenuItem mnemonicParsing="false" onAction="#cargarRecibos" text="Recibos" />
+                        <MenuItem mnemonicParsing="false" onAction="#cargarProveedores" text="Proveedores" />
+                    </items>
+                </Menu>
+                <Menu fx:id="almacen" mnemonicParsing="false" text="Almacén">
+                    <items>
+                        <MenuItem mnemonicParsing="false" onAction="#cargarProductos" text="Productos" />
+                    </items>
+                </Menu>
+            </menus>
+        </MenuBar>
+
+        <AnchorPane fx:id="contenido" prefHeight="753.0" prefWidth="1280.0" />
+
+        <HBox id="footer" alignment="CENTER_LEFT" spacing="5.0">
+            <children>
+                <Label maxHeight="1.7976931348623157E308" maxWidth="-1.0" text="bed's" HBox.hgrow="ALWAYS">
+                    <font>
+                        <Font size="11.0" fx:id="x3" />
+                    </font>
+                    <textFill>
+                        <Color red="0.625" green="0.625" blue="0.625" fx:id="x4" />
+                    </textFill>
+                </Label>
+                <Pane prefHeight="-1.0" prefWidth="-1.0" HBox.hgrow="ALWAYS" />
+                <Label font="$x3" maxWidth="-1.0" text="el descanso y tú" textFill="$x4" HBox.hgrow="NEVER" />
+            </children>
+            <padding>
+                <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+            </padding>
+        </HBox>
+    </children>
+</VBox>

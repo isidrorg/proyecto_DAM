@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.cell.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<fx:root fx:id="facturas" prefHeight="753.0" prefWidth="1280.0" stylesheets="@../stylesheets/main.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="stories.facturas.FacturasController">
+    <children>
+        <VBox spacing="30.0" styleClass="container-left">
+            <children>
+            <HBox layoutX="40.0" layoutY="40.0">
+               <children>
+                  <Label styleClass="title" text="Facturas" />
+               </children>
+            </HBox>
+                <HBox>
+                    <children>
+                        <Label styleClass="form-label-left" text="Nº factura:" />
+                        <TextField fx:id="numeroFactura" editable="false" styleClass="form-textfield-left" />
+                    </children>
+                </HBox>
+                <HBox layoutX="40.0" layoutY="40.0">
+                    <children>
+                        <Label styleClass="form-label-left" text="Cliente:" />
+                        <ComboBox fx:id="cliente" prefWidth="150.0" styleClass="form-textfield-left" />
+                    </children>
+                </HBox>
+                <HBox layoutX="40.0" layoutY="95.0">
+                    <children>
+                        <Label styleClass="form-label-left" text="Productos*:" />
+                        <ComboBox fx:id="producto" prefWidth="264.0">
+                            <HBox.margin>
+                                <Insets right="20.0" />
+                            </HBox.margin></ComboBox>
+                        <TextField fx:id="cantidadProducto" prefWidth="120.0">
+                            <HBox.margin>
+                                <Insets right="20.0" />
+                            </HBox.margin>
+                        </TextField>
+                        <Button mnemonicParsing="false" onAction="#setProductoEnLista" text="+" />
+                    </children>
+                </HBox>
+                <TableView fx:id="tablaInsertarProductos" prefHeight="250.0" prefWidth="200.0">
+                    <columns>
+                        <TableColumn prefWidth="50.0" resizable="false" sortable="false" styleClass="text-align-right" text="ID">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="id" />
+                            </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn prefWidth="270.0" resizable="false" sortable="false" text="Nombre">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="nombre" />
+                            </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn prefWidth="120.0" resizable="false" sortable="false" text="Marca">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="marca" />
+                            </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn prefWidth="50.0" resizable="false" sortable="false" styleClass="text-align-right" text="Uds.">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="unidades" />
+                            </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn prefWidth="90.0" resizable="false" sortable="false" styleClass="text-align-right" text="Precio">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="precio" />
+                            </cellValueFactory>
+                        </TableColumn>
+                    </columns>
+                </TableView>
+                <HBox layoutX="40.0" layoutY="150.0">
+                    <children>
+                        <Label styleClass="form-label-left" text="Base imponible:" />
+                        <TextField fx:id="baseImponible" alignment="CENTER_RIGHT" editable="false" styleClass="form-textfield-left" />
+                    </children>
+                </HBox>
+                <HBox layoutX="40.0" layoutY="205.0">
+                    <children>
+                        <Label styleClass="form-label-left" text="Impuestos:" />
+                        <TextField fx:id="impuestosBase" alignment="CENTER_RIGHT" editable="false" prefWidth="70.0" promptText="7.00">
+                            <opaqueInsets>
+                                <Insets />
+                            </opaqueInsets>
+                            <HBox.margin>
+                                <Insets right="20.0" />
+                            </HBox.margin>
+                        </TextField>
+                        <TextField fx:id="impuestosTotal" alignment="CENTER_RIGHT" editable="false" layoutX="140.0" layoutY="10.0" prefWidth="360.0" />
+                    </children>
+                    <VBox.margin>
+                        <Insets />
+                    </VBox.margin>
+                </HBox>
+                <HBox layoutX="40.0" layoutY="260.0">
+                    <children>
+                        <Label styleClass="form-label-left" text="Total:" />
+                        <TextField fx:id="total" alignment="CENTER_RIGHT" editable="false" styleClass="form-textfield-left" />
+                    </children>
+                </HBox>
+                <HBox alignment="CENTER_RIGHT" layoutX="40.0" layoutY="545.0" styleClass="spacing-default">
+                    <children>
+                        <Button mnemonicParsing="false" onAction="#limpiarFactura" styleClass="button-big" text="Limpiar">
+                            <HBox.margin>
+                                <Insets />
+                            </HBox.margin>
+                        </Button>
+                        <Button fx:id="botonEmitir" disable="true" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#emitirFactura" styleClass="button-big" text="Emitir" />
+                        <Button fx:id="botonImprimir" disable="true" layoutX="66.0" layoutY="10.0" mnemonicParsing="false" onAction="#imprimirFactura" styleClass="button-big" text="Imprimir" />
+                    </children>
+                </HBox>
+            </children>
+        </VBox>
+        <VBox layoutX="640.0" spacing="30.0" styleClass="container-right">
+            <children>
+                <HBox styleClass="spacing-default">
+                    <children>
+                        <TextField fx:id="buscarNumeroFactura" prefWidth="200.0" promptText="Número Factura" />
+                  <ComboBox fx:id="buscarCliente" prefWidth="313.0" promptText="Cliente" />
+                        <Button mnemonicParsing="false" onAction="#buscarFactura" text="B" />
+                    </children>
+                </HBox>
+                <TableView fx:id="tablaBuscarFactura" prefHeight="350.0" prefWidth="580.0">
+                    <columns>
+                        <TableColumn prefWidth="100.0" text="Nº Factura">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="numeroFactura" />
+                            </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn prefWidth="180.0" text="Fecha">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="fecha" />
+                            </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn prefWidth="195.0" text="Cliente">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="idCliente" />
+                            </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn prefWidth="100.0" styleClass="text-align-right" text="Importe">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="importe" />
+                            </cellValueFactory>
+                        </TableColumn>
+                    </columns>
+                </TableView>
+            <TextArea fx:id="infoFactura" editable="false" prefHeight="200.0" prefWidth="200.0">
+               <font>
+                  <Font name="Ubuntu Mono" size="14.0" />
+               </font></TextArea>
+            <HBox alignment="CENTER_RIGHT" styleClass="spacing-default">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#limpiarBusquedaFactura" styleClass="button-big" text="Limpiar">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="botonImprimirFacturaBuscada" disable="true" layoutX="66.0" layoutY="10.0" mnemonicParsing="false" onAction="#imprimirFacturaBuscada" styleClass="button-big" text="Imprimir" />
+               </children>
+            </HBox>
+            </children>
+        </VBox>
+    </children>
+</fx:root>
