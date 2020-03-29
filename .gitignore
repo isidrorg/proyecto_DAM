@@ -1,0 +1,9 @@
+.idea/
+.git/
+gestor_database/
+out/
+target/
+entrega/
+externo/Diagrama_DB.dia.autosave
+proyectoDAM.iml
+*.log
